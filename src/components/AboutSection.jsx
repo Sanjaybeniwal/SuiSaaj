@@ -1,4 +1,5 @@
 import { CheckCircle2, Sparkles } from 'lucide-react';
+import { assetUrl } from '../data/boutiqueData.js';
 
 const STUDIO_HIGHLIGHTS = [
   'Master Ladies Tailors',
@@ -14,7 +15,7 @@ export default function AboutSection({ onBookAppointment }) {
         <div className="about-media">
           <div className="about-frame">
             <img
-              src="/images/about-atelier.jpg"
+              src={assetUrl('images/about-atelier.jpg')}
               alt="Blush silk fabric, rose-gold tailoring scissors, and embroidery swatches at SuiSaaj studio"
               loading="lazy"
             />

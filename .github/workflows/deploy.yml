@@ -1,0 +1,69 @@
+name: Deploy SuiSaaj to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run backend tests
+        run: npm test
+
+      - name: Build production frontend for GitHub Pages
+        env:
+          VITE_BASE_PATH: /${{ github.event.repository.name }}/
+          VITE_ENQUIRY_API_URL: ${{ vars.VITE_ENQUIRY_API_URL }}
+          VITE_BOUTIQUE_NAME: ${{ vars.VITE_BOUTIQUE_NAME }}
+          VITE_BOUTIQUE_TAGLINE: ${{ vars.VITE_BOUTIQUE_TAGLINE }}
+          VITE_PHONE_DISPLAY: ${{ vars.VITE_PHONE_DISPLAY }}
+          VITE_PHONE_RAW: ${{ vars.VITE_PHONE_RAW }}
+          VITE_WHATSAPP_NUMBER: ${{ vars.VITE_WHATSAPP_NUMBER }}
+          VITE_INSTAGRAM_URL: ${{ vars.VITE_INSTAGRAM_URL }}
+          VITE_BOUTIQUE_ADDRESS: ${{ vars.VITE_BOUTIQUE_ADDRESS }}
+          VITE_GOOGLE_MAPS_EMBED_URL: ${{ vars.VITE_GOOGLE_MAPS_EMBED_URL }}
+          VITE_GOOGLE_MAPS_LINK: ${{ vars.VITE_GOOGLE_MAPS_LINK }}
+        run: npm run build
+
+      - name: Setup GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

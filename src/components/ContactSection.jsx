@@ -9,7 +9,12 @@ import {
   Phone,
   Send,
 } from 'lucide-react';
-import { BOUTIQUE_CONFIG, BUDGET_RANGES, SERVICES } from '../data/boutiqueData.js';
+import {
+  BOUTIQUE_CONFIG,
+  BUDGET_RANGES,
+  ENQUIRY_API_ENDPOINT,
+  SERVICES,
+} from '../data/boutiqueData.js';
 import { validateField, validateForm } from '../utils/validation.js';
 
 function createSubmissionId() {
@@ -147,7 +152,7 @@ export default function ContactSection({ preselectedService, focusToken }) {
     setStatus({ type: 'idle', message: '' });
 
     try {
-      const response = await fetch('/api/enquiry', {
+      const response = await fetch(ENQUIRY_API_ENDPOINT, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -162,11 +167,13 @@ export default function ContactSection({ preselectedService, focusToken }) {
         if (data.errors && typeof data.errors === 'object') {
           setErrors(data.errors);
         }
+        const fallbackMessage =
+          response.status === 404 || response.status === 405
+            ? 'Email server is not connected to this static preview yet. Please click "Chat on WhatsApp" or "Call Now" to send your enquiry directly.'
+            : 'Unable to send your enquiry right now. Please try again or contact us on WhatsApp.';
         setStatus({
           type: 'error',
-          message:
-            data.message ||
-            'Unable to send your enquiry right now. Please try again or contact us on WhatsApp.',
+          message: data.message || fallbackMessage,
         });
         return;
       }

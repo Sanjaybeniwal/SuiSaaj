@@ -21,6 +21,27 @@ export function createApp(options = {}) {
   app.disable('x-powered-by');
   app.use(express.json({ limit: '32kb' }));
 
+  const allowedOrigins = (
+    process.env.ALLOWED_ORIGIN || 'https://sanjaybeniwal.github.io,http://localhost:5173'
+  )
+    .split(',')
+    .map((origin) => origin.trim())
+    .filter(Boolean);
+
+  app.use('/api', (req, res, next) => {
+    const requestOrigin = req.headers.origin;
+    if (requestOrigin && (allowedOrigins.includes('*') || allowedOrigins.includes(requestOrigin))) {
+      res.setHeader('Access-Control-Allow-Origin', requestOrigin);
+      res.setHeader('Vary', 'Origin');
+      res.setHeader('Access-Control-Allow-Methods', 'GET,POST,OPTIONS');
+      res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+    }
+    if (req.method === 'OPTIONS') {
+      return res.sendStatus(204);
+    }
+    return next();
+  });
+
   app.get('/api/health', (_req, res) => {
     res.json({
       status: 'ok',

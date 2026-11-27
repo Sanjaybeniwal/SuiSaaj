@@ -1,3 +1,13 @@
+export function assetUrl(relativePath) {
+  const base = import.meta.env.BASE_URL || '/';
+  const cleanBase = base.endsWith('/') ? base : `${base}/`;
+  const cleanPath = relativePath.replace(/^\/+/, '');
+  return `${cleanBase}${cleanPath}`;
+}
+
+export const ENQUIRY_API_ENDPOINT =
+  import.meta.env.VITE_ENQUIRY_API_URL?.trim() || '/api/enquiry';
+
 export const BOUTIQUE_CONFIG = {
   name: import.meta.env.VITE_BOUTIQUE_NAME || 'SuiSaaj',
   tagline: import.meta.env.VITE_BOUTIQUE_TAGLINE || 'Ladies Boutique & Bespoke Tailoring',
@@ -102,7 +112,7 @@ export const GALLERY_ITEMS = [
     title: 'Rose-Gold Zari Sweetheart Blouse',
     category: 'Blouses',
     service: 'Blouse Stitching',
-    image: '/images/gallery-blouse.jpg',
+    image: assetUrl('images/gallery-blouse.jpg'),
     caption: 'Dusty blush raw silk with handworked cutdana & pearl scalloped edging',
   },
   {
@@ -110,7 +120,7 @@ export const GALLERY_ITEMS = [
     title: 'Champagne Ivory Anarkali Suit',
     category: 'Suits & Kurtis',
     service: 'Suit Stitching',
-    image: '/images/gallery-suit.jpg',
+    image: assetUrl('images/gallery-suit.jpg'),
     caption: 'Floor-length flared Anarkali with gotta patti & blush organza dupatta',
   },
   {
@@ -118,7 +128,7 @@ export const GALLERY_ITEMS = [
     title: 'Chanderi Silk Festive Kurti',
     category: 'Suits & Kurtis',
     service: 'Kurti Stitching',
-    image: '/images/gallery-kurti.jpg',
+    image: assetUrl('images/gallery-kurti.jpg'),
     caption: 'Tailored pastel blush kurti finished with delicate lace and mirror accents',
   },
   {
@@ -126,7 +136,7 @@ export const GALLERY_ITEMS = [
     title: 'Blush Zardozi Bridal Lehenga',
     category: 'Bridal & Party',
     service: 'Bridal Wear',
-    image: '/images/gallery-bridal.jpg',
+    image: assetUrl('images/gallery-bridal.jpg'),
     caption: 'Hand-crafted antique rose-gold bridal ensemble with sculpted choli fit',
   },
   {
@@ -134,7 +144,7 @@ export const GALLERY_ITEMS = [
     title: 'Draped Cape Party Gown',
     category: 'Bridal & Party',
     service: 'Party Wear',
-    image: '/images/gallery-party.jpg',
+    image: assetUrl('images/gallery-party.jpg'),
     caption: 'Flowing mauve-blush georgette gown with embellished sheer cape sleeves',
   },
   {
@@ -142,7 +152,7 @@ export const GALLERY_ITEMS = [
     title: 'Bespoke Sketch & Drape Studio',
     category: 'Custom Design',
     service: 'Dress Designing',
-    image: '/images/gallery-custom.jpg',
+    image: assetUrl('images/gallery-custom.jpg'),
     caption: 'Custom silhouette sketching, silk swatches, and precision bodice draping',
   },
 ];

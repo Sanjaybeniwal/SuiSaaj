@@ -1,11 +1,12 @@
 import { ArrowRight, Sparkles } from 'lucide-react';
+import { assetUrl } from '../data/boutiqueData.js';
 
 export default function HeroSection({ onBookAppointment }) {
   return (
     <section id="home" className="hero">
       <div className="hero-bg" aria-hidden="true">
         <img
-          src="/images/hero-boutique.jpg"
+          src={assetUrl('images/hero-boutique.jpg')}
           alt="Tailored blush pink bridal blouse and silk lehenga inside SuiSaaj ladies boutique"
           fetchPriority="high"
         />
