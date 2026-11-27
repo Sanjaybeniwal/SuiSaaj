@@ -1,0 +1,28 @@
+{
+  "name": "suisaaj-boutique",
+  "version": "1.0.0",
+  "private": true,
+  "description": "SuiSaaj Ladies Boutique & Custom Tailoring Website with secure Nodemailer enquiry API",
+  "type": "module",
+  "scripts": {
+    "dev:server": "node --watch server/index.js",
+    "dev:client": "vite",
+    "dev": "concurrently -n API,WEB -c magenta,cyan \"npm run dev:server\" \"npm run dev:client\"",
+    "build": "vite build",
+    "start": "node server/index.js",
+    "test": "node --test server/enquiry.test.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "lucide-react": "^0.475.0",
+    "nodemailer": "^6.10.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.4",
+    "concurrently": "^9.1.2",
+    "vite": "^6.1.0"
+  }
+}
