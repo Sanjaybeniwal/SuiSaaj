@@ -18,6 +18,15 @@ export default function Footer({ onBookAppointment }) {
                 Exclusively Women&rsquo;s Boutique &amp; Ladies Custom Tailoring Studio dedicated to
                 perfect fits, timeless Indian designs, and warm personal service.
               </p>
+              <a
+                href={BOUTIQUE_CONFIG.instagramUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="footer-social-pill"
+              >
+                <Instagram size={16} />
+                <span>Follow us on Instagram</span>
+              </a>
             </div>
 
             <div>
@@ -73,10 +82,15 @@ export default function Footer({ onBookAppointment }) {
               &copy; {new Date().getFullYear()} {BOUTIQUE_CONFIG.name} Boutique. All rights
               reserved.
             </span>
-            <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}>
+            <a
+              href={BOUTIQUE_CONFIG.instagramUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="footer-bottom-social"
+            >
               <Instagram size={15} />
-              <span>Exclusively for Women &bull; Ladies Tailoring &amp; Ethnic Couture</span>
-            </span>
+              <span>Exclusively for Women &bull; Follow @SuiSaaj on Instagram</span>
+            </a>
           </div>
         </div>
       </footer>

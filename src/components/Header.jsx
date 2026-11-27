@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Instagram, Menu, X } from 'lucide-react';
 import { BOUTIQUE_CONFIG } from '../data/boutiqueData.js';
 
 const NAV_ITEMS = [
@@ -53,23 +53,36 @@ export default function Header({ onBookAppointment }) {
           ))}
         </nav>
 
-        <button
-          type="button"
-          className="btn btn--primary header-cta"
-          onClick={() => onBookAppointment()}
-        >
-          Book an Appointment
-        </button>
+        <div className="header-actions">
+          <a
+            href={BOUTIQUE_CONFIG.instagramUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="header-social-btn"
+            aria-label={`Follow ${BOUTIQUE_CONFIG.name} on Instagram`}
+            title="Follow us on Instagram"
+          >
+            <Instagram size={18} />
+          </a>
 
-        <button
-          type="button"
-          className="mobile-menu-btn"
-          aria-expanded={menuOpen}
-          aria-label={menuOpen ? 'Close navigation menu' : 'Open navigation menu'}
-          onClick={() => setMenuOpen((prev) => !prev)}
-        >
-          {menuOpen ? <X size={20} /> : <Menu size={20} />}
-        </button>
+          <button
+            type="button"
+            className="btn btn--primary header-cta"
+            onClick={() => onBookAppointment()}
+          >
+            Book an Appointment
+          </button>
+
+          <button
+            type="button"
+            className="mobile-menu-btn"
+            aria-expanded={menuOpen}
+            aria-label={menuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+            onClick={() => setMenuOpen((prev) => !prev)}
+          >
+            {menuOpen ? <X size={20} /> : <Menu size={20} />}
+          </button>
+        </div>
       </div>
 
       {menuOpen && (
@@ -79,6 +92,16 @@ export default function Header({ onBookAppointment }) {
               {item.label}
             </a>
           ))}
+          <a
+            href={BOUTIQUE_CONFIG.instagramUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mobile-drawer-social"
+            onClick={handleNavClick}
+          >
+            <Instagram size={17} />
+            <span>Follow on Instagram</span>
+          </a>
           <button
             type="button"
             className="btn btn--primary"
