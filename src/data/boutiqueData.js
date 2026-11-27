@@ -39,9 +39,9 @@ export const SERVICES = [
   {
     id: 'suit-stitching',
     title: 'Suit Stitching',
-    badge: 'Ethnic Elegance',
+    badge: 'Ladies Salwar Suits',
     description:
-      'Anarkalis, straight-cut salwar suits, shararas, and churidars stitched with neat finishing, lining, and custom neckline detailing.',
+      'Women’s Anarkalis, straight-cut salwar suits, shararas, and churidars stitched with neat finishing, lining, and custom neckline detailing.',
     icon: 'Sparkles',
   },
   {
@@ -49,13 +49,13 @@ export const SERVICES = [
     title: 'Kurti Stitching',
     badge: 'Everyday & Festive',
     description:
-      'Breezy daily-wear and festive kurtis with chikankari lace, potli buttons, pintucks, and flattering tailored cuts.',
+      'Breezy daily-wear and festive women’s kurtis with chikankari lace, potli buttons, pintucks, and flattering tailored cuts.',
     icon: 'Feather',
   },
   {
     id: 'bridal-wear',
     title: 'Bridal Wear',
-    badge: 'Couture Studio',
+    badge: 'Bridal Couture',
     description:
       'Dream bridal lehengas, zardozi cholis, and reception ensembles crafted with multi-trial precision for your big day.',
     icon: 'Crown',
@@ -63,9 +63,9 @@ export const SERVICES = [
   {
     id: 'party-wear',
     title: 'Party Wear',
-    badge: 'Evening Glamour',
+    badge: 'Women’s Evening Wear',
     description:
-      'Draped Indo-western gowns, cape sets, and cocktail sarees designed to make every celebration unforgettable.',
+      'Draped Indo-western gowns, cape sets, and cocktail sarees designed exclusively for women to shine at every celebration.',
     icon: 'Gem',
   },
   {
@@ -73,23 +73,23 @@ export const SERVICES = [
     title: 'Dress Designing',
     badge: 'Concept to Stitch',
     description:
-      'Turn your Pinterest moodboard or fabric into a one-of-a-kind outfit with personalized sketching, trims, and styling guidance.',
+      'Turn your moodboard or fabric into a one-of-a-kind women’s outfit with personalized sketching, trims, and styling guidance.',
     icon: 'Palette',
   },
   {
     id: 'alteration-services',
     title: 'Alteration Services',
-    badge: 'Quick Turnaround',
+    badge: 'Ladies Alterations',
     description:
-      'Expert resizing, saree fall-pico, sleeve adjustments, and heirloom outfit restyling handled with meticulous care.',
+      'Expert women’s outfit resizing, blouse & kurti fitting, saree fall-pico, sleeve adjustments, and heirloom restyling.',
     icon: 'Ruler',
   },
   {
     id: 'custom-tailoring',
     title: 'Custom Tailoring',
-    badge: 'Made for You',
+    badge: 'Women Only',
     description:
-      'Individual body-measurement pattern drafting for all women’s ethnic and fusion wear—no standard size compromises.',
+      'Exclusively ladies pattern drafting and custom stitching for women’s ethnic and fusion wear—no menswear, no standard size compromises.',
     icon: 'HeartHandshake',
   },
 ];

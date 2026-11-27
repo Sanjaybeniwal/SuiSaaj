@@ -219,10 +219,10 @@ export default function ContactSection({ preselectedService, focusToken }) {
 
         <div className="contact-layout">
           <aside className="contact-info-card">
-            <h3>Visit or Reach Our Studio</h3>
+            <h3>Visit or Reach Our Ladies Studio</h3>
             <p className="contact-lead">
-              Walk in for fabric styling and custom measurements, or connect directly by phone,
-              WhatsApp, or Instagram.
+              Exclusively for women&rsquo;s tailoring and boutique styling. Walk in for custom
+              measurements, or connect directly by phone, WhatsApp, or Instagram.
             </p>
 
             <div className="contact-list">

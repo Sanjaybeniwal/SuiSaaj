@@ -3,11 +3,11 @@ import { assetUrl } from '../data/boutiqueData.js';
 
 const RIBBON_ITEMS = [
   'Bespoke Bridal Blouses',
-  'Anarkali & Designer Suits',
+  'Ladies Salwar & Anarkali Suits',
   'Hand Zardozi & Gotta Patti',
   'Made-to-Measure Kurtis',
-  'Indo-Western Party Gowns',
-  'Precision Alterations',
+  "Women's Indo-Western Gowns",
+  'Ladies Saree & Dress Alterations',
 ];
 
 export default function HeroSection({ onBookAppointment }) {
@@ -27,7 +27,7 @@ export default function HeroSection({ onBookAppointment }) {
           <div className="hero-content">
             <div className="hero-pill">
               <Sparkles size={14} />
-              <span>Bespoke Ladies Tailoring &amp; Ethnic Boutique</span>
+              <span>Exclusively for Women &bull; Ladies Boutique &amp; Tailoring</span>
             </div>
 
             <h1 className="hero-title">
@@ -75,17 +75,17 @@ export default function HeroSection({ onBookAppointment }) {
               <div className="hero-showcase-icon">
                 <Award size={20} />
               </div>
-              <p className="hero-showcase-eyebrow">Atelier Signature</p>
+              <p className="hero-showcase-eyebrow">Women-Only Atelier</p>
               <h2 className="hero-showcase-title">Tailored to Celebrate Your Silhouette</h2>
               <p className="hero-showcase-text">
-                One-on-one fabric &amp; neckline consultation, custom pattern drafting, and
-                complimentary trial fittings.
+                One-on-one fabric &amp; neckline consultation, custom women&rsquo;s pattern
+                drafting, and complimentary trial fittings.
               </p>
               <div className="hero-showcase-tags">
                 <span>Blouses</span>
                 <span>Bridal</span>
-                <span>Suits</span>
-                <span>Alterations</span>
+                <span>Salwar Suits</span>
+                <span>Kurtis</span>
               </div>
             </div>
           </div>

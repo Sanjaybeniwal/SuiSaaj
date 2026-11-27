@@ -41,7 +41,7 @@ export default function Header({ onBookAppointment }) {
           </span>
           <span className="brand-text">
             <span className="brand-name">{BOUTIQUE_CONFIG.name}</span>
-            <span className="brand-sub">Ladies Boutique</span>
+            <span className="brand-sub">Exclusively for Women</span>
           </span>
         </a>
 

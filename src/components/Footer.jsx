@@ -15,8 +15,8 @@ export default function Footer({ onBookAppointment }) {
             <div>
               <h3 className="footer-brand">{BOUTIQUE_CONFIG.name}</h3>
               <p className="footer-muted">
-                Ladies Boutique &amp; Custom Tailoring Studio dedicated to perfect fits, timeless
-                Indian designs, and warm personal service.
+                Exclusively Women&rsquo;s Boutique &amp; Ladies Custom Tailoring Studio dedicated to
+                perfect fits, timeless Indian designs, and warm personal service.
               </p>
             </div>
 
@@ -75,7 +75,7 @@ export default function Footer({ onBookAppointment }) {
             </span>
             <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}>
               <Instagram size={15} />
-              <span>Crafted for Ladies Tailoring &amp; Bespoke Ethnic Fashion</span>
+              <span>Exclusively for Women &bull; Ladies Tailoring &amp; Ethnic Couture</span>
             </span>
           </div>
         </div>
