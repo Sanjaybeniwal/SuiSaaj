@@ -1,4 +1,5 @@
 import { useCallback, useState } from 'react';
+import { useScrollReveal } from './utils/useScrollReveal.js';
 import Header from './components/Header.jsx';
 import HeroSection from './components/HeroSection.jsx';
 import AboutSection from './components/AboutSection.jsx';
@@ -11,6 +12,8 @@ import Footer from './components/Footer.jsx';
 export default function App() {
   const [preselectedService, setPreselectedService] = useState('');
   const [focusToken, setFocusToken] = useState(0);
+
+  useScrollReveal();
 
   const handleBookAppointment = useCallback((serviceName = '') => {
     if (serviceName) {

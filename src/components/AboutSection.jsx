@@ -8,17 +8,25 @@ const STUDIO_HIGHLIGHTS = [
   'Honest & Affordable Pricing',
 ];
 
+const JOURNEY_STEPS = [
+  { step: '01', title: 'Style & Fabric Consult', detail: 'Pick silhouettes, necklines & trims' },
+  { step: '02', title: 'Custom Measurements', detail: 'Individual patterns cut to your fit' },
+  { step: '03', title: 'Trial & Neat Finish', detail: 'Refined adjustments before delivery' },
+];
+
 export default function AboutSection({ onBookAppointment }) {
   return (
     <section id="about" className="section">
       <div className="container about-grid">
-        <div className="about-media">
-          <div className="about-frame">
-            <img
-              src={assetUrl('images/about-atelier.jpg')}
-              alt="Blush silk fabric, rose-gold tailoring scissors, and embroidery swatches at SuiSaaj studio"
-              loading="lazy"
-            />
+        <div className="about-media" data-reveal>
+          <div className="about-frame-wrap">
+            <div className="about-frame">
+              <img
+                src={assetUrl('images/about-atelier.jpg')}
+                alt="Blush silk fabric, rose-gold tailoring scissors, and embroidery swatches at SuiSaaj studio"
+                loading="lazy"
+              />
+            </div>
           </div>
           <div className="about-badge">
             <strong>Crafted with Grace</strong>
@@ -26,10 +34,10 @@ export default function AboutSection({ onBookAppointment }) {
           </div>
         </div>
 
-        <div className="about-copy">
+        <div className="about-copy" data-reveal>
           <span className="eyebrow">About Our Boutique</span>
           <h2 className="section-title">
-            Where Traditional Craft Meets Effortless Modern Fit
+            Where Traditional Craft Meets <em>Effortless Modern Fit</em>
           </h2>
           <p>
             At SuiSaaj, we believe every woman deserves clothing that feels made exclusively for
@@ -48,6 +56,18 @@ export default function AboutSection({ onBookAppointment }) {
               <div key={item} className="about-pillar">
                 <CheckCircle2 size={18} />
                 <span>{item}</span>
+              </div>
+            ))}
+          </div>
+
+          <div className="journey-strip" aria-label="Our 3-step tailoring process">
+            {JOURNEY_STEPS.map((item) => (
+              <div key={item.step} className="journey-step">
+                <span className="journey-num">{item.step}</span>
+                <div>
+                  <strong>{item.title}</strong>
+                  <span>{item.detail}</span>
+                </div>
               </div>
             ))}
           </div>

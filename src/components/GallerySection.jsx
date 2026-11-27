@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ArrowRight, X } from 'lucide-react';
+import { ArrowRight, Expand, X } from 'lucide-react';
 import { GALLERY_ITEMS } from '../data/boutiqueData.js';
 
 const CATEGORIES = ['All', 'Blouses', 'Suits & Kurtis', 'Bridal & Party', 'Custom Design'];
@@ -16,9 +16,11 @@ export default function GallerySection({ onBookService }) {
   return (
     <section id="gallery" className="section">
       <div className="container">
-        <div className="section-header">
+        <div className="section-header" data-reveal>
           <span className="eyebrow">Boutique Gallery</span>
-          <h2 className="section-title">Signature Stitches &amp; Curated Looks</h2>
+          <h2 className="section-title">
+            Signature Stitches &amp; <em>Curated Looks</em>
+          </h2>
           <p className="section-subtitle">
             Explore a glimpse of our custom blouses, ethnic suits, bridal ensembles, and studio
             designs. Click any design to inspect details or request a similar look.
@@ -41,15 +43,21 @@ export default function GallerySection({ onBookService }) {
         </div>
 
         <div className="gallery-grid">
-          {visibleItems.map((item) => (
+          {visibleItems.map((item, index) => (
             <button
               key={item.id}
               type="button"
               className="gallery-card"
+              data-reveal
+              style={{ transitionDelay: `${(index % 3) * 70}ms` }}
               onClick={() => setSelectedItem(item)}
               aria-label={`View details for ${item.title}`}
             >
               <img src={item.image} alt={item.title} loading="lazy" />
+              <span className="gallery-zoom-pill" aria-hidden="true">
+                <Expand size={14} />
+                View
+              </span>
               <div className="gallery-overlay">
                 <span className="gallery-cat">{item.category}</span>
                 <h3 className="gallery-title">{item.title}</h3>

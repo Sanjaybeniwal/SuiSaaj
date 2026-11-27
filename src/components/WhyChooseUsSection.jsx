@@ -21,9 +21,11 @@ export default function WhyChooseUsSection() {
   return (
     <section id="why-us" className="section section--blush">
       <div className="container">
-        <div className="section-header">
+        <div className="section-header" data-reveal>
           <span className="eyebrow">Why Choose Us</span>
-          <h2 className="section-title">The SuiSaaj Promise in Every Seam</h2>
+          <h2 className="section-title">
+            The SuiSaaj Promise in <em>Every Seam</em>
+          </h2>
           <p className="section-subtitle">
             Thoughtful craftsmanship, fair pricing, and personal care so every visit feels warm,
             seamless, and inspiring.
@@ -31,10 +33,15 @@ export default function WhyChooseUsSection() {
         </div>
 
         <div className="why-grid">
-          {WHY_CHOOSE_US.map((feature) => {
+          {WHY_CHOOSE_US.map((feature, index) => {
             const IconComponent = ICON_MAP[feature.icon] || Sparkles;
             return (
-              <div key={feature.title} className="why-card">
+              <div
+                key={feature.title}
+                className="why-card"
+                data-reveal
+                style={{ transitionDelay: `${(index % 3) * 70}ms` }}
+              >
                 <div className="why-icon" aria-hidden="true">
                   <IconComponent size={21} />
                 </div>
